@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex flex-col justify-center items-center h-screen w-screen">
+<form th:action="@{/}" method="post" class="flex flex-col items-center">
+    <p class="text-5xl mb-10">Send email with AWS SES</p>
+    <input type="email" class="w-2/3 my-2 text-black placeholder:text-black border rounded border-black " name="email" />
+    <button type="submit" class="p-2 bg-blue-600 rounded text-white text-5xl">UPLOAD</button>
+</form>
+<p th:classappend="${message} == 'success' ? 'text-green-600' : 'text-red-600'" class="text-5xl mt-5" th:text="${message}"></p>
+</body>
+</html>

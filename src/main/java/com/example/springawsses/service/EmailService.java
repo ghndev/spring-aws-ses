@@ -20,8 +20,8 @@ public class EmailService {
     public void send(String subject, String content, List<String> receivers) {
         Destination destination = new Destination().withToAddresses(receivers);
 
-        Content subjectContent = createContent(subject);
-        Content mailContent = createContent(content);
+        Content subjectContent = new Content(subject);
+        Content mailContent = new Content(content);
 
         Message message = new Message()
                 .withSubject(subjectContent)
@@ -33,9 +33,5 @@ public class EmailService {
                 .withMessage(message);
 
         amazonSimpleEmailService.sendEmail(sendEmailRequest);
-    }
-
-    public Content createContent(String text) {
-        return new Content().withCharset("UTF_8").withData(text);
     }
 }
